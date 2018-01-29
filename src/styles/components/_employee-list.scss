@@ -1,0 +1,70 @@
+.employee-list {
+  margin: 0 auto;
+  max-width: 100%;
+  font-size: 0;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  .employee {
+    display: block;
+    vertical-align: top;
+    width: 100%;
+    margin: 0 3% 3vw 0;
+    text-align: left;
+  }
+
+  .employee-photo-wrap {
+    margin: -0.9375rem -0.9375rem 0.9375rem -0.9375rem;
+  }
+
+  .employee-photo {
+    width: 100% !important;
+    margin: 0;
+  }
+
+  .employee-name {
+    margin-bottom: 0;
+  }
+
+  p,
+  ul {
+    width: 100%;
+  }
+
+  .employee-contact {
+    li {
+      list-style-type: none;
+      margin-left: 0;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .employee-list {
+
+    .employee {
+      width: 48.5%;
+
+      &:nth-child(2n) { margin-right: 0; }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  /*.employee-list {
+
+    .employee {
+      width: 31.333%;
+
+      &:nth-child(2n) { margin-right: auto; }
+      &:nth-child(3n) { margin-right: 0; }
+    }
+  }*/
+
+  .employee-contact {
+    li .icon {
+      top: 2px;
+    }
+  }
+}

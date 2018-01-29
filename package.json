@@ -1,0 +1,51 @@
+{
+  "name": "east-coast-product-website",
+  "version": "1.0.0",
+  "description": "East Coast Product website",
+  "main": "build.js",
+  "dependencies": {
+    "autoprefixer": "^6.7.7",
+    "del": "^2.2.1",
+    "ejs": "^2.4.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-rename": "^1.2.2",
+    "gulp-svgmin": "^1.2.2",
+    "gulp-watch": "^4.3.8",
+    "metalsmith": "^2.1.0",
+    "metalsmith-branch": "0.0.4",
+    "metalsmith-clean-css": "^5.0.1",
+    "metalsmith-collections": "^0.7.0",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-fingerprint": "^1.0.3",
+    "metalsmith-html-minifier": "^2.2.0",
+    "metalsmith-ignore": "^0.1.2",
+    "metalsmith-in-place": "^1.4.4",
+    "metalsmith-layouts": "^1.6.5",
+    "metalsmith-mapsite": "^1.0.4",
+    "metalsmith-metadata": "0.0.4",
+    "metalsmith-permalinks": "^0.5.0",
+    "metalsmith-postcss": "^4.0.1",
+    "metalsmith-redirect": "^2.1.0",
+    "metalsmith-sass": "^1.3.0",
+    "metalsmith-serve": "0.0.7",
+    "node-neat": "^1.7.2",
+    "nodemon": "^1.11.0",
+    "postcss-unprefix": "^1.2.0"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ECP",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-s3": "^0.3.0",
+    "gulp-shell": "^0.5.2",
+    "metalsmith-date-formatter": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EastCoastProduct/homepage.git"
+  }
+}

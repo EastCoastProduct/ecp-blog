@@ -1,0 +1,39 @@
+.icon {
+  display: inline-block;
+  vertical-align: top;
+  height: 20px;
+  width: 22px;
+  margin-right: 9px;
+  position: relative;
+  top: 2px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@media (min-width: 700px) {
+  .icon {
+    top: 6px;
+  }
+}
+
+.icon--monitor-lightest   { background-image: url('../../images/icons/monitor-lightest.svg'); }
+.icon--phone-lightest     { background-image: url('../../images/icons/phone-lightest.svg'); }
+.icon--facebook-lightest  { background-image: url('../../images/icons/facebook-lightest.svg'); }
+.icon--linkedin-lightest  { background-image: url('../../images/icons/linkedin-lightest.svg'); }
+.icon--twitter-lightest   { background-image: url('../../images/icons/twitter-lightest.svg'); }
+.icon--github-lightest    { background-image: url('../../images/icons/github-lightest.svg'); }
+.icon--email-lightest     { background-image: url('../../images/icons/email-lightest.svg'); }
+.icon--dribbble-lightest  { background-image: url('../../images/icons/dribbble-lightest.svg'); }
+.icon--calendar-lightest  { background-image: url('../../images/icons/calendar-lightest.svg'); }
+.icon--spotlight-lightest { background-image: url('../../images/icons/spotlight-lightest.svg'); }
+
+.icon--monitor-darkest    { background-image: url('../../images/icons/monitor-darkest.svg'); }
+.icon--phone-darkest      { background-image: url('../../images/icons/phone-darkest.svg'); }
+.icon--facebook-darkest   { background-image: url('../../images/icons/facebook-darkest.svg'); }
+.icon--linkedin-darkest   { background-image: url('../../images/icons/linkedin-darkest.svg'); }
+.icon--twitter-darkest    { background-image: url('../../images/icons/twitter-darkest.svg'); }
+.icon--github-darkest     { background-image: url('../../images/icons/github-darkest.svg'); }
+.icon--email-darkest      { background-image: url('../../images/icons/email-darkest.svg'); }
+.icon--dribbble-darkest   { background-image: url('../../images/icons/dribbble-darkest.svg'); }
+.icon--calendar-darkest   { background-image: url('../../images/icons/calendar-darkest.svg'); }
+.icon--spotlight-darkest  { background-image: url('../../images/icons/spotlight-darkest.svg'); }

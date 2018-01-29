@@ -1,0 +1,91 @@
+---
+url: /why-we-love-webdriverio-and-you-should-too/index.html
+pageHeading: Why We Love WebdriverIO and You Should Too
+pageDescription: Ana Prpic
+pageDate: 2016-11-17
+pageHeadingImage:
+pageHeadingImageAlt:
+id: why-we-love-webdriverio-and-you-should-too
+draft: false
+layout: post.ejs
+---
+
+<p><em>Brought to you by our partners at <a href="http://blazingedge.io" target="_blank">Blazing Edge</a>.</em></p>
+
+<p class="paragraph--major">I've been using <a href="http://webdriver.io/" target="_blank">the WebdriverIO testing framework</a> for the last eight months and have had an incredibly positive experience, so I want to share the love. If you are looking for a new testing framework, here are a few reasons to consider WebdriverIO.</p>
+
+<h2 class="text-heading-two">It's developer friendly</h2>
+
+<p>WebdriverIO is written entirely in JavaScript. This is awesome because it lets me write checks in a familiar language and allows me to use the same libraries I have used previously for Unit Testing (Mocha & Chai).</p>
+
+<p>Also, WebdriverIO makes it super simple to find elements. Outside of searching for elements by only the text they contain (e.g. ‘<code>button=Save</code>’), WebdriverIO allows the use of advanced CSS selectors (e.g. ‘<code>#editSomething>span #someElementID</code>’, or ‘<code>#elementId>h3:nth-of-type(1)</code>’). This means there’s no need to rely on the pesky xPath and accidentally selecting duplicate elements is no longer an issue!</p>
+
+<p>Combined with <a href="https://addons.mozilla.org/en-US/firefox/addon/firefinder-for-firebug/" target="_blank">Firefinder</a> for <a href="https://addons.mozilla.org/en-US/firefox/addon/firebug/" target="_blank">Firebug</a> (for Firefox), WebdriverIO makes writing checks incredibly easy. The framework comes with a nice configuration utility that helped me create a config file in a matter of seconds. I did it by typing:</p>
+
+<p><code>wdio config</code></p>
+
+<p>in the command line of the project’s folder and then a command line wizard launched. After answering some questions about my project, the config file was done:</p>
+
+<img src="/images/post-images/webdriver-config.jpg" class="post-image full-width" alt="A screenshot of setting up a Webdriver configuration in the terminal.">
+
+<p>Another good aspect of WebdriverIO is it comes with its own test runner. I wanted to learn more about automated workflows, so I used gulp-webdriver, a <a href="http://gulpjs.com/" target="_blank">Gulp</a> plugin that runs selenium tests with the WebdriverIO runner. Setup is as easy as:</p>
+
+<p><code>npm install -g gulp</code></p>
+
+<p><code>npm install --save-dev gulp</code></p>
+
+<p>and the gulp task for running checks looks something like this:</p>
+
+<script src="https://gist.github.com/Alkaia/1ce603c681c77a7a55961265e53e12f1.js"></script>
+
+<p>WebdriverIO supports other testing frameworks like Jasmine, Cucumber, and Mocha. I used Mocha because the configuration helper kindly offered it to me, and I’ve used it before.</p>
+
+<p>Additionally, you can add custom options into the <em>wdio.conf.js</em> config file, e.g. for Mocha:</p>
+
+<script src="https://gist.github.com/Alkaia/1d71fd1664a194b3a8ab5ff9a8fab834.js"></script>
+
+<p>Not only that, you can set global variables, arrange scripts into suites, and set the number of browser instances. I'll dive deeper into these options in a later blog post.</p>
+
+<p>If you’re still doubting the framework's friendliness, check out this awesome <a href="https://gitter.im/webdriverio/webdriverio" target="_blank">Gitter channel</a> where WebdriverIO devs and users hang out, share knowledge, and help one another.</p>
+
+<h2 class="text-heading-two">You get Selenium under the hood</h2>
+
+<p>The best thing about WebdriverIO and Selenium working together is that checks run in a broad range of browsers (the sorts that have drivers, that is), like Firefox, Chrome, Safari, and even IE. This makes cross-browser checking SO much easier.</p>
+
+<h2 class="text-heading-two">It’s intuitive</h2>
+
+<p>The commands used in WebdriverIO checks are short, succinct, and pretty intuitive.</p>
+
+<p>For example, logging into an app is as easy as:</p>
+
+<script src="https://gist.github.com/Alkaia/42503f42da0b5d6843c2262cde54ee74.js"></script>
+
+<h2 class="text-heading-two">Commands are customizable</h2>
+
+<p>Out of hundreds of available commands, sometimes we need that special one that’s not available. Thus, we make our own. WebdriverIO supports custom commands, so we can just call the "<em>addCommand</em>" function and pass in our custom steps like this:</p>
+
+<script src="https://gist.github.com/Alkaia/c2a4e9177691d52b5e74b34f57347be9.js"></script>
+
+<p>I haven’t needed custom commands yet, but it’s good to know that they're available if necessary.</p>
+
+<h2 class="text-heading-two">Easy Page Object & Helper Functions</h2>
+
+<p>WebdriverIO supports the <a href="http://webdriver.io/guide/testrunner/pageobjects.html" target="_blank">Page Objects</a> design pattern. Using Page Objects is a way of separating page information from the checks. This helps reduce repeating the same selectors connected to a common action over and over, like <em>Login</em>, that cause you to end up with scripts that are difficult to maintain. If anything changes on the page, you’ll have to refactor your code to account for the change in multiple places, and you might miss a file or two. To work around this, a Page Object can be used to reference that action. Then, it’s easy just to refactor the Page Object with the update  propagating to wherever you use it in the checking suites. Here's an example of how to use of a Page Object:</p>
+
+<script src="https://gist.github.com/Alkaia/3a31ca232cf4ec7c17659ab9db0a9604.js"></script>
+
+<p>Personally, I use helper functions for this purpose. Here's an example of a helper function, <em>account.js</em>:</p>
+
+<script src="https://gist.github.com/Alkaia/81eb13b9e102faa493c064e1d777a560.js"></script>
+
+<p>This function is then referenced in the <em>testAccount.js</em> suite like this:</p>
+
+<script src="https://gist.github.com/Alkaia/75694e6f3de4c6c979d6c840af8ec345.js"></script>
+
+<p>That way, if anything changes in the Account/Login page code, I can refactor my <em>account.js</em> helper function, and I’m done.</p>
+
+<p>When I was starting out, I didn’t really understand the Page Object Model but have since decided to give it another chance. Since it seems like helper functions do pretty much the same thing - reference an action and keep it separated from the checks - I’m not sure if I should switch to Page Object Model. If anyone has some good arguments for why the Page Object Model is a better choice, I’d be very interested in hearing them.</p>
+
+<h2 class="text-heading-two">Final thoughts</h2>
+
+<p>I hope you find WebdriverIO as valuable as I have. If you want to play with it some more, check out this <a href="https://github.com/EastCoastProduct/webdriverio-blog-example" target="_blank">GitHub repo</a> to see the examples from this post and a few extras that will be the topic of my next post (repo in progress). Happy Testing!</p>

@@ -1,0 +1,22 @@
+<head>
+  <meta charset="UTF-8" />
+  <% if(pageHeading) { %><title><%= pageHeading %> | East Coast Product</title>
+  <% } else { %><title>East Coast Product</title><% } %>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- sharing preview on social media stuff -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ECPBoston">
+    <meta name="twitter:url" property="og:url" content="https://eastcoastproduct.com<%= url %>">
+    <% if(pageHeading) { %><meta name="twitter:title" property="og:title" content="<%= pageHeading %> | East Coast Product">
+    <% } else { %><meta name="twitter:title" property="og:title" content="East Coast Product"><% } %>
+    <% if(pageDescription) { %><meta name="twitter:description" property="og:description" content="<%= pageDescription %>"><% } %>
+    <meta name="twitter:image" property="og:image" content="https://eastcoastproduct.com/images/logos/ecp-twitter-logo.png">
+  <!-- end of sharing preview on social media stuff -->
+  <!-- SEO stuff -->
+    <% if(pageDescription) { %><meta name="description" content="<%= pageDescription %>"><% } %>
+    <link rel="canonical" href="https://eastcoastproduct.com<%= url %>" />
+  <!-- end of SEO stuff -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="/<%= fingerprint['styles/main.css'] %>">
+</head>

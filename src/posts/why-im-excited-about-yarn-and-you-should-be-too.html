@@ -1,0 +1,104 @@
+---
+url: /why-im-excited-about-yarn-and-you-should-be-too/index.html
+pageHeading: Why I'm Excited About Yarn and You Should Be Too
+pageDescription: Ivan Blazevic
+pageDate: 2016-10-20
+pageHeadingImage:
+pageHeadingImageAlt:
+id: why-im-excited-about-yarn-and-you-should-be-too
+draft: false
+layout: post.ejs
+---
+
+<p><em>Brought to you by our partners at <a href="http://blazingedge.io" target="_blank">Blazing Edge</a>.</em></p>
+
+<p class="paragraph--major">Remember the dark age of packages in web development? Searching all over the web to try and find a version of a package from some global CDN just to cut your load times by a small margin?</p>
+
+<p>Well, since then, we’ve come a long way. Most libraries and packages you use for development are open sourced and hosted on Github today. Awesome tools, like Bower, have paved the way for npm, which is now the de facto standard for JS package management.</p>
+
+<p>Creating an application without the massive package repository that npm has to offer is hard and simply terrifying to even imagine. It's super easy, just type <code>npm install mypackage</code> and it's installed and ready to use, add <code>--save</code> and it's added to the package.json. What's not to like?</p>
+
+<p>Don’t get me wrong, npm is not without its imperfections. Npm is very complex and with this ever-increasing complexity, some imperfections became more apparent. Enter: Yarn.</p>
+
+<p>Last week, Google, Tilde, Facebook, and Exponent collaboratively launched Yarn, a new package manager to address some of the glaring issues with npm. In this post I will take a closer look at Yarn and discuss the most important improvements that it’s claiming to make.</p>
+
+<h2 class="text-heading-two">Work Offline</h2>
+
+<p>Simply put, to install packages using npm, you need to be connected to the internet in order to fetch the desired packages.</p>
+
+<p>Alternatively, Yarn gives you the power to work in offline mode. Yarn essentially caches all packages globally that you install. If you are installing a package that you have installed previously, you don't need an internet connection at all. Offline mode also speeds up all subsequent installations of the same package since there is no need to go and fetch if from the internet.</p>
+
+<h2 class="text-heading-two">Lockfile</h2>
+
+<p>I can’t tell you how many times different package versions installed across the team had been the culprit for a bug. Checking dependency versions tends to be an annoying starting point for every developer when trying to figure out some strange bug that only affected certain people or certain environments.</p>
+
+<p>To address this, npm introduced shrinkwrap, which lets you to lock package versions for production. If you run <code>npm shrinkwrap</code> it will generate a <em>npm-shrinkwrap.json</em> file with listed locked dependencies. However, shrinkwrap requires you to actually run it manually. If you add a new package and forget to run shrinkwrap, that package is left out.</p>
+
+<p>To solve this problem, Yarn took a proven concept from other package managers - <strong>lock file</strong>. During the installation, <code>yarn.lock</code> file is generated automatically. It's similar to Gemfile.lock file that Ruby on Rails developers should be very familiar with. This file locks all the versions installed, and each time Yarn installs, it will use these locked versions. If you keep this file in the repository (which you should), it guarantees that all developers, and even deploy builds, are running the same dependency versions.</p>
+
+<h2 class="text-heading-two">Determinism</h2>
+
+<p>The npm client uses a non-deterministic approach when installing packages. This means that the <em>node_modules/</em> directory structure can vary between different systems and different developers. A common problem with this structure variance between different systems and developers is it’s a potential source for those <em>‘It works on my machine’</em> bugs.</p>
+
+<p>Yarn lockfile guarantees that no matter how many times you run it on the same repository, you will always get the same results - this works across different machines and production builds. No more need for pushing <em>node_modules</em> to the repository or keeping it zipped somewhere so that different machines can unpack and have the exact same version of <em>node_modules</em>.</p>
+
+<p>Determinism is an incredibly important feature for a package manager and is really long overdue with npm.</p>
+
+<h2 class="text-heading-two">Speed</h2>
+
+<p>Yarn claims to be giving a big increase in dependency installation speed. I ran a few experiments to test this claim.</p>
+
+<p>Using the same hardware, I picked three different repositories to compare:</p>
+
+<ul>
+  <li>A React repository</li>
+  <li>An internal front-end React application</li>
+  <li>An API written in Node.js.</li>
+</ul>
+
+<p>For each repository, I did three sets of measurements:</p>
+
+<ul>
+  <li>one with npm3</li>
+  <li>one with Yarn without cache</li>
+  <li>one with Yarn when packages are already cached.</li>
+</ul>
+
+<p>I ran multiple experiments for each and used the average. There was no significant difference when running npm3 with or without cache, so the time wasn’t noted.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th><strong>npm3</strong></th>
+      <th><strong>Yarn</strong></th>
+      <th><strong>Yarn(cached)</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>react</strong></td>
+      <td>1:41</td>
+      <td>0:40</td>
+      <td>0:17</td>
+    </tr>
+    <tr>
+      <td><strong>front-end</strong></td>
+      <td>1:45</td>
+      <td>0:54</td>
+      <td>0:22</td>
+    </tr>
+    <tr>
+      <td><strong>API</strong></td>
+      <td>1:35</td>
+      <td>0:48</td>
+      <td>0:16</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As you can see, Yarn is about twice as fast as npm3 on the initial installation. On the second run, when packages are cached, and don’t need to be fetched over the network, Yarn is an impressive five times faster than npm3 installations. Needless to say, the increase is pretty apparent.</p>
+
+<p>For the past week or so I have been playing with Yarn, and it definitely seems more reliable than the current version of npm. I’m excited to see how npm, as the current king of JS package managers, will react to this. Yarn clearly improves on a few aspects and I expect to see npm introducing at least some of these improvements.</p>
+
+<p>In the meantime, ECP will probably make a switch from npm to Yarn because the benefits seem to be so evident and clear.</p>

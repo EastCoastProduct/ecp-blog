@@ -1,0 +1,35 @@
+<div class="skip-links visually-hidden">
+  <ul>
+    <li><a href="#navigation">Skip to main navigation</a></li>
+    <li><a href="#main">Skip to main content</a></li>
+    <li><a href="#banner">Stay here in the header</a></li>
+    <li><a href="#contentinfo">Skip to the footer</a></li>
+  </ul>
+</div><!-- end of .skip-links -->
+<header class="header--global" role="banner" id="banner">
+  <div class="container ">
+    <a href="/" class="main--navigation-logo">
+      <img src="/images/logos/header-logo-black.svg" alt="East Coast Product Logo" />
+      <span class="visually-hidden">East Coast Product</span>
+    </a>
+    <nav class="navigation--global" role="navigation" id="navigation">
+      <a href="https://eastcoastproduct.com/services" class="link link-services">Services</a>
+      <!--<a href="/work" class="link link-work">Work</a>-->
+      <a href="https://eastcoastproduct.com/about" class="link link-about">About</a>
+      <a href="https://eastcoastproduct.com/jobs" class="link link-jobs">Jobs</a>
+      <a href="/index.html" class="link link-blog">Blog</a>
+      <a href="https://eastcoastproduct.com/contact" class="button--default">Hire Us</a>
+    </nav>
+    <div class="page-heading">
+      <% if(layout == "post.ejs") { %>
+        <h1 class="page-heading--title"><%- pageHeading %></h1>
+        <p class="page-heading--subtitle">By <%- pageDescription %> | <%- pageDate %></p>
+      <% } else { %>
+        <h1 class="page-heading--title"><%- pageHeading %></h1>
+        <% if(pageDescription) { %>
+          <p class="page-heading--subtitle"><%- pageDescription %></p>
+        <% } %>
+      <% } %>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,31 @@
+.job-list {
+  margin: 0 auto;
+  max-width: 100%;
+  font-size: 0;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  .job {
+    display: block;
+    vertical-align: top;
+    width: 100%;
+    margin: 0 3% 3vw 0;
+    text-align: left;
+  }
+
+  p {
+    width: 100%;
+  }
+}
+
+@media (min-width: 500px) {
+  .job-list {
+
+    .job {
+      width: 48.5%;
+
+      &:nth-child(2n) { margin-right: 0; }
+    }
+  }
+}

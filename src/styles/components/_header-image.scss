@@ -1,0 +1,142 @@
+.header--image {
+  width: 100%;
+  position: relative;
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  .browser-chrome {
+    display: block;
+    border: 2px solid $lightest;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 0 2px;
+    position: relative;
+
+    &:before { // bottom of browser top bar
+      content: "";
+      display: block;
+      height: 43px;
+      border-bottom: 2px solid $lightest;
+      margin: 0 -2px 2px -2px;
+    }
+
+    .browser-buttons {
+      display: block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: 1px solid $lightest;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba($lightest, 0.1);
+      }
+
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        border: 1px solid $lightest;
+        position: absolute;
+        top: -1px;
+        left: 15px;
+        pointer-events: none;
+      }
+
+      &:after {
+        left: 31px;
+      }
+    }
+
+    .browser-url-bar {
+      position: absolute;
+      top: 8px; right: 8px; left: 75px;
+      display: block;
+      height: 25px;
+      border: 1px solid $lightest;
+      border-radius: 4px;
+      padding: 0 0.5em;
+      font-size: 0.75rem;
+      line-height: 25px;
+      overflow: hidden;
+
+      &:focus,
+      &:not(:empty) {
+        outline: none;
+        background-color: rgba($lightest, 0.1);
+
+        &:before {
+          content: "https://"
+        }
+      }
+    }
+  }
+
+  .mobile-device {
+    display: block;
+    border: 2px solid $lightest;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 0 2px;
+    position: relative;
+    max-width: 320px;
+    margin: 0 auto;
+    max-height: 500px;
+
+    &:before { // bottom of bezel
+      content: "";
+      display: block;
+      height: 50px;
+      border-bottom: 2px solid $lightest;
+      margin: 0 -2px 2px -2px;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      background-color: black;
+      position: absolute;
+      top: 52px; right: 2px; bottom: 2px; left: 2px;
+      z-index: 0;
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+      transition: opacity 0.25s ease-in-out;
+    }
+
+    .mobile-camera {
+      display: block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: 1px solid $lightest;
+      position: absolute;
+      top: 18px;
+      left: 0; right: 0;
+      margin: auto;
+    }
+
+    .mobile-power-button {
+      display: block;
+      width: 50px;
+      height: 4px;
+      border-radius: 2px 2px 0 0;
+      background-color: $lightest;
+      position: absolute;
+      top: -4px;
+      right: 20px;
+      cursor: pointer;
+    }
+  }
+}

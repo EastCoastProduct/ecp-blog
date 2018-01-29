@@ -1,0 +1,47 @@
+---
+url: /experimenting-with-solid-for-javascript/index.html
+pageHeading: Experimenting with SOLID for JavaScript
+pageDescription: Niksa Janjic
+pageDate: 2016-11-03
+pageHeadingImage:
+pageHeadingImageAlt:
+id: experimenting-with-solid-for-javascript
+draft: false
+layout: post.ejs
+---
+
+<p><em>Brought to you by our partners at <a href="http://blazingedge.io" target="_blank">Blazing Edge</a>.</em></p>
+
+<p class="paragraph--major">Here at East Coast Product we’re nerds at heart and we really enjoy playing with emerging tech. Recently, we had an opportunity to start exploring <a href="https://github.com/solid/solid" target="_blank">SOLID</a>, a design framework that has the potential to fundamentally change how social applications manage data. For added fun, it lines up really well with JavaScript!</p>
+
+<h2 class="text-heading-two">What is SOLID?</h2>
+
+<p>Let’s start with a little more about SOLID –  these are a set of conventions that propose that every user should store their own data where they want. This allows the user as the data owner to choose which apps access some or all of the data. The goal here is to build a decentralized web.</p>
+
+<p>But what exactly does SOLID do? Currently, when you create an account on Facebook, Twitter, or LinkedIn, these companies own whatever information you provide and they store it in their own databases. Many applications support API integrations but this is just additional functionality inside the same ecosystem that doesn’t give users control and ownership over their own data.</p>
+
+<p>SOLID’s value premise is that once a user’s data is added, deleted, or updated in the private  repository, applications receive updated data when they make a request. This eliminates the need for the user to manually open each and every application to make changes or transfer data. Think of the last time you had to do a mass update of your social accounts, perhaps when you moved or changed jobs – SOLID would simplify that process substantially.</p>
+
+<h2 class="text-heading-two">Why We’re Excited</h2>
+
+<p>For us, the prospect of a new order in data management and user data ownership is a pretty big deal. Data would be free from any particular application and could be reused and transferred easily between all of your favorite apps. On the technical side, developers benefit from being able to offload some of the data architecture to this simple framework. Although we found that the structure can be limiting in some aspects, you will generally be able to develop faster. If that weren’t a big enough sell, SOLID is the latest project by Tim Berners-Lee in collaboration with MIT’s <a href="https://www.csail.mit.edu/" target="_blank">Computer Science and Artificial Intelligence Lab</a> (CSAIL) and the <a href="https://www.w3.org/" target="_blank">W3C</a>.</p>
+
+<h2 class="text-heading-two">Getting Started</h2>
+
+<p>Since SOLID is a newer technology, there obviously aren’t many examples out there and documentation is theoretical and limited. The best documentation I found was the <a href="https://github.com/solid/solid-client" target="_blank">SOLID-Client</a> repository and the <a href="https://github.com/solid/solid-tutorial-rdflib.js" target="_blank">rdflib.js</a> tutorial repository so definitely check those out.</p>
+
+<p>Working with SOLID requires a backend skillset because you have to deal with data architecture. I found <a href="https://github.com/solid/solid-apps" target="_blank">a few examples</a> of SOLID apps developed in Angular that helped me really understand how the principles work in practice. For context, I'm a frontend developer but have backend experience and I’m very comfortable with Angular.</p>
+
+<h2 class="text-heading-two">Things to Keep in Mind</h2>
+
+<p>As with any new technology, hitting a roadblock can't be solved by a quick Google search. In my case, I encountered a Chrome bug during the authentication process, so I'm only able to properly log in using Safari. If anyone out there has insight on fixing this, I would welcome the help.</p>
+
+<p>One of the downsides of SOLID became really apparent with our sample social media profile. Creating a list of friends required multiple HTTP requests from different sources that increased the overhead and loading time substantially. Theoretically, you could cache the requests on a local server but then you have to deal with keeping the data fresh, which creates it’s own set of problems.</p>
+
+<p>The extra logic also requires larger JavaScript files, leading to longer download times. Not a big deal, but something worth mentioning. This could be a downside for SPA applications where more code on the frontend means bigger JavaScript files even when minimized.</p>
+
+<h2 class="text-heading-two">Final Thoughts</h2>
+
+<p>Personally, I find the prospect of users owning their own data very exciting—it completely disrupts the current way social networks operate.  While the biggest social networks may not move away from their current data management models in the near term, new social spaces might force others to reconsider user data management and ownership.</p>
+
+<p>Check out our GitHub repository to see our React/Redux <a href="https://github.com/EastCoastProduct/profile-editor" target="_blank">SOLID profile editor</a> in action. I’ve included some instructions to help you start testing and experimenting with it.</p>

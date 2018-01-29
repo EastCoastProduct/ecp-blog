@@ -1,0 +1,122 @@
+.header--global {
+  background-color: $light-blue;
+  padding-top: 1.875rem;
+  position: relative;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 1.875rem;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include bottom-left($lightest);
+    background-size: 100% 100%;
+    -webkit-filter: drop-shadow( rgba($blue-shade, 0.15) 0 -5px 20px );
+            filter: drop-shadow( rgba($blue-shade, 0.15) 0 -5px 20px );
+  }
+}
+
+.main--navigation-logo {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin: 0;
+  border: none;
+  transition: all 0.1s ease-in-out;
+
+  &:hover, &:focus {
+    border: none;
+    background-color: transparent !important;
+    transform: translate3d(0, -3px, 0);
+  }
+
+  &:active {
+    transform: translate3d(0, 3px, 0);
+  }
+}
+
+.navigation--global {
+  display: inline-block;
+  margin: 1.5rem 0 1.5rem 0;
+  width: 100%;
+  font-size: 0.75rem;
+
+  a {
+    margin: 0 0.5rem;
+    border-bottom-color: rgba($blue, 0.2);
+
+    &.link {
+      line-height: 2;
+    }
+
+    &:hover,
+    &:focus {
+      border-bottom-color: $blue;
+    }
+  }
+
+  .button--default {
+    margin: 24px 0 0 0;
+    display: block;
+    width: 100%
+  }
+}
+
+.area-services .link-services,
+.area-work .link-work,
+.area-about .link-about,
+.area-jobs .link-jobs,
+.area-blog .link-blog {
+  border-bottom-color: $blue !important;
+}
+
+.page-heading {
+  margin-top: 1.875rem;
+}
+
+@media (min-width: 400px) {
+  .navigation--global {
+    font-size: 0.9375rem;
+
+    .button--default {
+      width: 75%;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+
+  .header--global {
+
+    &:after {
+      height: 3.75rem;
+    }
+  }
+
+  .main--navigation-logo {
+    display: inline-block;
+    width: 30%;
+    margin: 0;
+  }
+
+  .navigation--global {
+    display: block;
+    width: 69%;
+    margin: 2% 0 0 0;
+    float: right;
+    text-align: right;
+
+    .button--default {
+      display: inline-block;
+      margin: 0 0 0 0.5rem;
+      width: auto;
+    }
+  }
+
+  .page-heading {
+    margin-top: 3.75rem;
+  }
+}
