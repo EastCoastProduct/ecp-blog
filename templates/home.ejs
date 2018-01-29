@@ -9,7 +9,7 @@
         <div class="container">
           <div>
             <% collections.posts.forEach(function(post) { %>
-            <a href="/posts/<%= post.id %>" class="post card">
+            <a href="/<%= post.id %>" class="post card">
               <h2 class="text-heading-two"><span class="link-surrogate"><%= post.pageHeading %></span></h2>
               <p>By <%- post.pageDescription %> | <%- post.pageDate %></p>
             </a>

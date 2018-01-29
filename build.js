@@ -1,17 +1,15 @@
 const Metalsmith =    require('metalsmith')
-const branch =        require('metalsmith-branch')
 const cleanCSS =      require('metalsmith-clean-css')
 const collections =   require('metalsmith-collections')
 const dateFormatter = require('metalsmith-date-formatter')
 const drafts =        require('metalsmith-drafts')
 const fingerprint =   require('metalsmith-fingerprint')
 const htmlMinifier =  require('metalsmith-html-minifier')
-const ignore =        require('metalsmith-ignore')
 const layouts =       require('metalsmith-layouts')
 const metadata =      require('metalsmith-metadata')
+const moveUp =        require('metalsmith-move-up')
 const permalinks =    require('metalsmith-permalinks')
 const postcss =       require('metalsmith-postcss')
-const redirect =      require('metalsmith-redirect')
 const sass =          require('metalsmith-sass')
 const serve =         require('metalsmith-serve')
 const mapsite =       require('metalsmith-mapsite')
@@ -39,6 +37,7 @@ Metalsmith(__dirname)
     pattern: ':title',
     relative: false
   }))
+  .use(moveUp('posts/**'))
   .use(mapsite({
     hostname:  'https://blog.eastcoastproduct.com',
     omitIndex: true
