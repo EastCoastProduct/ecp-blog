@@ -1,5 +1,4 @@
 var gulp     = require('gulp'),
-    watch    = require('gulp-watch'),
     cleanCSS = require('gulp-clean-css'),
     rename   = require('gulp-rename'),
     s3       = require('gulp-s3'),
@@ -8,24 +7,6 @@ var gulp     = require('gulp'),
     del      = require('del'),
     svgmin   = require('gulp-svgmin');
 
-
-/* local working on css  */
-gulp.task('minify-css', function() {
-  return gulp.src('build/styles/main.css')
-    .pipe(cleanCSS())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('build/styles/'));
-});
-
-gulp.task('generate-css', ['minify-css']);
-
-gulp.task('watch', function() {
-  watch('build/styles/main.css', function() {
-    gulp.start('generate-css');
-  })
-});
 
 /* minifying svg files */
 gulp.task('minify-svg', function() {

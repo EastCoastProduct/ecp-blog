@@ -6,10 +6,10 @@ After cloning/downloading repository on your local machine, navigate to that dir
 npm install
 ```
 
-While you are positioned in the same directory run `gulp watch` and `nodemon build` in second terminal, this commands will build the site
+While you are positioned in the same directory run `nodemon build`, this command will build the site
 and run the server and enable live reloading of the project. Now you'll be able to access the homepage by opening
 your browser and going to this address
-[https://localhost:8080](https://localhost:8080)
+[https://localhost:8080](https://localhost:4040)
 
 Note: After adding new svg files to the project just run `gulp minify-svg` command to generate minified svg files.
 

@@ -1,16 +1,12 @@
 const Metalsmith =    require('metalsmith')
-const cleanCSS =      require('metalsmith-clean-css')
 const collections =   require('metalsmith-collections')
 const dateFormatter = require('metalsmith-date-formatter')
 const drafts =        require('metalsmith-drafts')
-const fingerprint =   require('metalsmith-fingerprint')
 const htmlMinifier =  require('metalsmith-html-minifier')
 const layouts =       require('metalsmith-layouts')
 const metadata =      require('metalsmith-metadata')
 const moveUp =        require('metalsmith-move-up')
 const permalinks =    require('metalsmith-permalinks')
-const postcss =       require('metalsmith-postcss')
-const sass =          require('metalsmith-sass')
 const serve =         require('metalsmith-serve')
 const mapsite =       require('metalsmith-mapsite')
 
@@ -42,36 +38,13 @@ Metalsmith(__dirname)
     hostname:  'https://blog.eastcoastproduct.com',
     omitIndex: true
   }))
-  .use(sass({
-    outputStyle: 'expanded',
-  }))
-  .use(postcss({
-    plugins: {
-      'postcss-unprefix': {},
-      'autoprefixer': {
-        browsers: [
-          '> 1%',
-          'last 2 versions',
-          'Firefox ESR'
-        ]
-      }
-    }
-  }))
-  .use(cleanCSS({
-    files: 'styles/*.css',
-    cleanCSS: {
-      rebase: false
-    }
-  }))
-  .use(fingerprint({
-    pattern: 'styles/*.css'
-  }))
   .use(layouts({
     engine: 'ejs',
     directory: './templates/'
   }))
   .use(htmlMinifier())
   .use(serve({
+    port: 4040,
     http_error_files: {
       404: "/error.html"
     }
