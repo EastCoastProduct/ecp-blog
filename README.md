@@ -8,7 +8,7 @@ If you need to edit the CSS and preview how it's working, you will need to run b
 
 ## Setup
 
-After cloning/downloading repository on your local machine, navigate to that directory in your terminal and run `npm install` to install all the plugins and packages to run the site locally.
+After cloning/downloading the repository on your local machine, navigate to that directory in your terminal and run `npm install` to install all the plugins and packages to run the site locally.
 
 ## Working
 
@@ -19,6 +19,10 @@ Go to `src/posts` and duplicate the `template.html` file to make a new post. It 
 To keep a draft unpublished, leave `draft: true` in the front-matter. To publish a draft, change it to `draft: false`. This will allow the post to be built to the `/build` folder.
 
 ## Building and Deploying Changes
+
+The site is built using [Metalsmith](http://www.metalsmith.io/). It is a basic static site generator that adds functionality through the use of plugins.
+
+The `build.js` file in the root of this repo configures Metalsmith and its plugins. You can find further documentation on each plugin by Googling the name you see in this file.
 
 The blog is hosted on Amazon S3. To deploy you will need to create an `.aws.json` configuration file to be saved locally. Use the provided `.aws.json.example` but with your own keys to do this.
 
@@ -31,6 +35,16 @@ Copy "Access Key ID" and paste it into `.aws.json` in the "key" section, then co
 To build and deploy the site, run `gulp publish`
 
 This builds the site and deploys changes to Amazon S3.
+
+# Invalidating the Cache
+
+We use Cloudfront through AWS to run the site with secure credentials, allowing https access. Cloudfront also caches assets on various servers. When deploying changes to the site you will have to manually invalidate the cache through Cloudfront if you want those changes to be immediately visible.
+
+To do this, go to the [AWS console](https://console.aws.amazon.com) and go to `Services -> Cloudfront` and click on the blog.eastcoastproduct.com distribution. Then go to the "Invalidations" tab. Click the "Create Invalidation" button.
+
+If you only changed a couple of files, you should enter the paths to them in the box that comes up. If you made extensive changes, your best bet is to enter `/*`. This will invalidate the whole site and make all your changes accessible.
+
+A new invalidation will be added to the top of the list when you click "Invalidate". This status will show the invalidation running until it's done and changes to "Completed".
 
 ## SVG Files
 
